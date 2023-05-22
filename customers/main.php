@@ -1,7 +1,8 @@
 <?php
-
+error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin:*');
 header('Content-Type: application/json');
+header('Access-Control-Allow-Method: GET');
 header('Access-Control-Allow-Method: POST');
 header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Request-With');
 
@@ -13,14 +14,24 @@ if ($requestMethod == 'POST') {
 
     $inputData = json_decode(file_get_contents("php://input"), true);
 
-    if(empty($inputData)){
+    if (empty($inputData)) {
         echo $_POST['name'];
         $storeCustomer = storeCustomer($_POST);
-    }else{
-        
+    } else {
+
         $storeCustomer = storeCustomer($inputData);
     }
     echo $storeCustomer;
+
+
+} elseif ($requestMethod == "GET") {
+    if (isset($_GET['id'])) {
+        $customer = getCustomer($_GET);
+        echo $customer;
+    } else {
+        $customerList = getCustomerList();
+        echo $customerList;
+    }
 
 
 } else {
