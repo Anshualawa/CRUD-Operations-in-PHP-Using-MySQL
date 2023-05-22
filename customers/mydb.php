@@ -3,7 +3,7 @@
 $host = "localhost"; //vdh-nuvt-obi
 $username = "root";
 $password = "";
-$dbname = "test";
+$dbname = "PracticeDB";
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
