@@ -1,6 +1,6 @@
 <?php
 
-$host = "localhost";
+$host = "localhost"; //vdh-nuvt-obi
 $username = "root";
 $password = "";
 $dbname = "PracticeDB";
